@@ -8,29 +8,26 @@ using namespace std;
 		/    \	 /    \
 */
 
+template <typename T>
 struct Tree {
 	
-	int data;
+	T data;
 	Tree* left;
 	Tree* right;
 	
-	Tree(int new_data) {
-		data = new_data;
-		left = nullptr;
-		right = nullptr;
-	}
+	 explicit Tree(T new_data) : data(new_data), left(nullptr), right(nullptr) {}
 };
 
-void assignLeft(Tree *parent, Tree *child) {
+inline void assignLeft(Tree<int> *parent, Tree<int> *child) {
 	parent->left = child;
 }
 
-void assignRight(Tree *parent, Tree *child) {
+inline void assignRight(Tree<int> *parent, Tree<int> *child) {
 	parent->right = child;
 }
 
-Tree *createTree(int dat) {
-	Tree *tree = new Tree(dat);
+inline Tree<int> *createTree(const int dat) {
+	auto *tree = new Tree(dat);
 	return tree;
 }
 /*
@@ -40,7 +37,7 @@ Tree *createTree(int dat) {
 	7
 */
 
-void traverseLeft(Tree *t) {
+inline void traverseLeft(Tree<int> *t) {
 	
 	while (t != nullptr) {
 		cout << t->data;
@@ -54,7 +51,7 @@ void traverseLeft(Tree *t) {
 	cout << endl;
 }
 
-void traverseRight(Tree *t) {
+inline void traverseRight(Tree<int> *t) {
 	while (t != nullptr) {
 		cout << t->data;
 		if (t->right) {
@@ -67,7 +64,7 @@ void traverseRight(Tree *t) {
 	cout << endl;
 }
 
-void traverse(Tree *t) {
+inline void traverse(Tree<int> *t) {
 	traverseLeft(t);
 	traverseRight(t);
 }

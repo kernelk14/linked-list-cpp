@@ -5,11 +5,10 @@
 using namespace std;
 
 int main() {
-	
-	Node *first = new Node(10);
-	Node *second = new Node(20);
-	Node *third = new Node(30);
-	
+	auto *first = new Node(10);
+	auto *second = new Node(20);
+	auto *third = new Node(30);
+
 	first->next = second;
 	second->next = third;
 	second->prev = first;
@@ -24,12 +23,12 @@ int main() {
 
 	// cout << nthNode(first, 10) << endl;
 
-	Tree *root = createTree(2);
-	Tree *sec = createTree(3);
-	Tree *thi = createTree(4);
-	Tree *fou = createTree(5);
-	Tree *fif = createTree(6);
-	Tree *six = createTree(7);
+	Tree<int> *root = createTree(2);
+	Tree<int> *sec = createTree(3);
+	Tree<int> *thi = createTree(4);
+	Tree<int> *fou = createTree(5);
+	Tree<int> *fif = createTree(6);
+	Tree<int> *six = createTree(7);
 
 /*
 				2
@@ -45,6 +44,10 @@ int main() {
 	assignLeft(fou, six);
 
 	traverse(root);
+
+	free(first);
+	free(second);
+	free(third);
 
 	return 0;
 }

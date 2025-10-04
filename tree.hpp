@@ -18,15 +18,18 @@ struct Tree {
 	 explicit Tree(T new_data) : data(new_data), left(nullptr), right(nullptr) {}
 };
 
-inline void assignLeft(Tree<int> *parent, Tree<int> *child) {
+template <typename T>
+inline void assignLeft(Tree<T> *parent, Tree<T> *child) {
 	parent->left = child;
 }
 
-inline void assignRight(Tree<int> *parent, Tree<int> *child) {
+template <typename T>
+inline void assignRight(Tree<T> *parent, Tree<T> *child) {
 	parent->right = child;
 }
 
-inline Tree<int> *createTree(const int dat) {
+template <typename T>
+inline Tree<T> *createTree(T dat) {
 	auto *tree = new Tree(dat);
 	return tree;
 }
@@ -37,7 +40,8 @@ inline Tree<int> *createTree(const int dat) {
 	7
 */
 
-inline void traverseLeft(Tree<int> *t) {
+template <typename T>
+inline void traverseLeft(Tree<T> *t) {
 	
 	while (t != nullptr) {
 		cout << t->data;
@@ -51,7 +55,8 @@ inline void traverseLeft(Tree<int> *t) {
 	cout << endl;
 }
 
-inline void traverseRight(Tree<int> *t) {
+template <typename T>
+inline void traverseRight(Tree<T> *t) {
 	while (t != nullptr) {
 		cout << t->data;
 		if (t->right) {
@@ -64,7 +69,8 @@ inline void traverseRight(Tree<int> *t) {
 	cout << endl;
 }
 
-inline void traverse(Tree<int> *t) {
+template <typename T>
+inline void traverse(Tree<T> *t) {
 	traverseLeft(t);
 	traverseRight(t);
 }
